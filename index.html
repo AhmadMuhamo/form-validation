@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign up | Robusta</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <form action="https://private-b2e6827-robustatask.apiary-mock.com/auth/register" method="post">
+  <div class="form-wrapper">
+    <nav>
+      <a class="nav-link active" href="#" data-tab="signup">Signup</a>
+      <a class="nav-link" href="#" data-tab="login">Login</a>
+    </nav>
+    <form action="https://private-b2e6827-robustatask.apiary-mock.com" method="post">
       <div class="form-group">
-        <span>Full Name</span>
-        <input type="text" id="username" />
+        <label for="name">Full Name</label>
+        <input type="text" id="name" autocomplete="name" required />
       </div>
       <div class="form-group">
-        <span>Email</span>
-        <input type="text" id="username" />
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="email" required />
       </div>
       <div class="form-group">
-        <span>Username</span>
-        <input type="text" id="username" />
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" required />
       </div>
       <div class="form-group">
-        <span>Password</span>
-        <input type="password" id="password" />
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="new-password" required />
       </div>
-      <input type="submit" value="submit" />
+      <input type="submit" value="Signup" />
     </form>
+  </div>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>

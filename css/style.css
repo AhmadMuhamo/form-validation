@@ -1,0 +1,21 @@
+html {
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+  font-size: 62.5%;
+  height: 100%;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.6rem;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(rgb(44, 62, 80),rgba(44, 62, 80,0.7));
+}
+.form-wrapper {
+    background-color: rgba(0,0,0,0.7);
+    padding: 2.5rem;
+}
