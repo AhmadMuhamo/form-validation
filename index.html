@@ -12,11 +12,11 @@
 
   <div class="form-wrapper">
     <nav>
-      <a class="nav-link active" href="#" data-tab="signup">Signup</a>
-      <a class="nav-link" href="#" data-tab="login">Login</a>
+      <a class="nav-link active" id="to-signup" href="#">Signup</a>
+      <a class="nav-link" href="#" id="to-login">Login</a>
     </nav>
-    <form action="https://private-b2e6827-robustatask.apiary-mock.com" method="post">
-      <div class="form-group">
+    <form id="signup-form" action="https://private-b2e6827-robustatask.apiary-mock.com" method="post">
+      <div class="form-group signup-only">
         <label for="name">Name</label>
         <input type="text" id="name" autocomplete="name" required />
       </div>
@@ -25,7 +25,7 @@
         <input type="email" id="email" autocomplete="email" required />
         <span class="error" id="error-email"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group signup-only">
         <label for="username">Username</label>
         <input type="text" id="username" autocomplete="username" required />
         <span class="error" id="error-username"></span>
@@ -35,7 +35,7 @@
         <input type="password" id="password" autocomplete="new-password" required />
         <span class="error" id="error-password"></span>
       </div>
-      <input type="submit" value="Signup" />
+      <button id="submit-btn"> Signup </button>
     </form>
   </div>
 

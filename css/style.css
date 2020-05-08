@@ -79,7 +79,7 @@ nav .nav-link.active:after {
   border: 1px solid rgba(41, 128, 185, 1);
 }
 
-input[type='submit'] {
+button#submit-btn {
   width: 100%;
   display: block;
   background-color: #16a085;
@@ -91,10 +91,10 @@ input[type='submit'] {
   font-size: 2rem;
   text-transform: uppercase;
 }
-input[type='submit']:focus {
+button#submit-btn:focus {
   outline: none;
 }
-input[type='submit']:hover {
+button#submit-btn:hover {
   cursor: pointer;
   background-color: #1abc9c;
 }
