@@ -131,7 +131,7 @@ for (field in formFields) {
 
 /**
  * Switching between tabs
- * @param {*} tab, tab to navigate to
+ * @param {String} tab, tab to navigate to signup or signin
  */
 const switchTab = (tab) => {
   const signupOnlyfields = [...document.querySelectorAll('.signup-only')]
@@ -184,6 +184,10 @@ const initializeTab = () => {
  * @param {String} type, Signup or signin
  */
 const formHandler = async (payload, type) => {
+  const submitBtn = document.getElementById('submit-btn')
+  const currentBtnHtml = submitBtn.innerHTML
+  const loaderHTML = `<span class="loader"></span>`
+  submitBtn.innerHTML = loaderHTML
   const url = `${config.API_URL}${
     type === 'signup' ? config.API_PATH_SIGNUP : config.API_PATH_SIGNIN
   }`
@@ -195,4 +199,10 @@ const formHandler = async (payload, type) => {
     body: JSON.stringify(payload),
   })
   const data = await response.json()
+  submitBtn.innerHTML = currentBtnHtml
+  if (data.success) {
+    alert(data.message)
+  } else {
+    alert('Something went wrong!')
+  }
 }
