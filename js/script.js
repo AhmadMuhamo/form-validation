@@ -146,6 +146,7 @@ const switchTab = (tab) => {
   initializeTab()
 
   if (tab === 'register') {
+      document.title = 'Register | Robusta'
     form.dataset.type = 'register'
     registerNavLink.classList.add('active')
     loginNavLink.classList.remove('active')
@@ -156,6 +157,7 @@ const switchTab = (tab) => {
       field.getElementsByTagName('input')[0].required = true
     })
   } else {
+    document.title = 'Login | Robusta'
     form.dataset.type = 'login'
     loginNavLink.classList.add('active')
     registerNavLink.classList.remove('active')
