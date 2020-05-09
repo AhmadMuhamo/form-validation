@@ -1,5 +1,3 @@
-console.log('app started')
-
 const config = {
   API_URL: 'https://private-b2e6827-robustatask.apiary-mock.com',
   API_PATH_SIGNUP: '/auth/register',
@@ -16,13 +14,16 @@ const formFields = {
   password: document.getElementById('password'),
 }
 
-let validation = {
+const validation = {
   name: false,
   email: false,
   username: false,
   password: false,
 }
 
+/**
+ * Navigation links click event handler
+ */
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     if (!link.classList.contains('active')) {
@@ -31,6 +32,9 @@ navLinks.forEach((link) => {
   })
 })
 
+/**
+ * Form submission event handler
+ */
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   const requestObject = {}
