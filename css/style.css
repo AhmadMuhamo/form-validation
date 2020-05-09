@@ -102,6 +102,9 @@ button#submit-btn:hover {
 .form-group.has-error input {
   border-color: #c0392b;
 }
+.form-group.has-error.weak input {
+  border-color: #d35400;
+}
 .form-group span.error {
   color: #c0392b;
   font-size: 1.2rem;
@@ -110,6 +113,9 @@ button#submit-btn:hover {
   visibility: hidden;
   transition: all 0.2s ease-in;
 }
+.form-group span.error.weak {
+    color: #d35400;
+  }
 .form-group.has-error span.error {
   opacity: 1;
   height: unset;
