@@ -5,7 +5,7 @@ const config = {
 }
 
 const navLinks = [...document.querySelectorAll('.nav-link')]
-const form = document.getElementById('signup-form')
+const form = document.getElementById('register-form')
 
 const formFields = {
   name: document.getElementById('name'),
@@ -27,7 +27,7 @@ const validation = {
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     if (!link.classList.contains('active')) {
-      link.id === 'to-signup' ? switchTab('signup') : switchTab('login')
+      link.id === 'to-register' ? switchTab('register') : switchTab('login')
     }
   })
 })
@@ -38,7 +38,7 @@ navLinks.forEach((link) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   const requestObject = {}
-  if (form.dataset.type === 'signup') {
+  if (form.dataset.type === 'register') {
     if (
       validation.name &&
       validation.email &&
@@ -49,7 +49,7 @@ form.addEventListener('submit', (e) => {
       requestObject.email = formFields.email.value
       requestObject.username = formFields.username.value
       requestObject.password = formFields.password.value
-      formHandler(requestObject, 'signup')
+      formHandler(requestObject, 'register')
     }
   } else {
     requestObject.email = formFields.email.value
@@ -135,33 +135,33 @@ for (field in formFields) {
 
 /**
  * Switching between tabs
- * @param {String} tab, tab to navigate to signup or signin
+ * @param {String} tab, tab to navigate to register or signin
  */
 const switchTab = (tab) => {
-  const signupOnlyfields = [...document.querySelectorAll('.signup-only')]
-  const signupNavLink = document.getElementById('to-signup')
+  const registerOnlyfields = [...document.querySelectorAll('.register-only')]
+  const registerNavLink = document.getElementById('to-register')
   const loginNavLink = document.getElementById('to-login')
   const submitBtn = document.getElementById('submit-btn')
 
   initializeTab()
 
-  if (tab === 'signup') {
-    form.dataset.type = 'signup'
-    signupNavLink.classList.add('active')
+  if (tab === 'register') {
+    form.dataset.type = 'register'
+    registerNavLink.classList.add('active')
     loginNavLink.classList.remove('active')
     formFields.password.autocomplete = 'new-password'
-    submitBtn.textContent = 'Signup'
-    signupOnlyfields.forEach((field) => {
+    submitBtn.textContent = 'Register'
+    registerOnlyfields.forEach((field) => {
       field.style.display = 'block'
       field.getElementsByTagName('input')[0].required = true
     })
   } else {
     form.dataset.type = 'login'
     loginNavLink.classList.add('active')
-    signupNavLink.classList.remove('active')
+    registerNavLink.classList.remove('active')
     formFields.password.autocomplete = 'current-password'
     submitBtn.textContent = 'Login'
-    signupOnlyfields.forEach((field) => {
+    registerOnlyfields.forEach((field) => {
       field.style.display = 'none'
       field.getElementsByTagName('input')[0].required = false
     })
@@ -185,7 +185,7 @@ const initializeTab = () => {
 /**
  * Async form handler, API Call
  * @param {Object} payload, Form data
- * @param {String} type, Signup or signin
+ * @param {String} type, Register or login
  */
 const formHandler = async (payload, type) => {
   const submitBtn = document.getElementById('submit-btn')
@@ -193,7 +193,7 @@ const formHandler = async (payload, type) => {
   const loaderHTML = `<span class="loader"></span>`
   submitBtn.innerHTML = loaderHTML
   const url = `${config.API_URL}${
-    type === 'signup' ? config.API_PATH_SIGNUP : config.API_PATH_SIGNIN
+    type === 'register' ? config.API_PATH_SIGNUP : config.API_PATH_SIGNIN
   }`
   const response = await fetch(url, {
     method: 'POST',
